@@ -23,3 +23,12 @@ class WikipediaHomePage(BasePage):
         for tag in all_a_tags:
             if tag.get_attribute("title") == "Help:Introduction to Wikipedia":
                 return tag
+
+    @property
+    def search_bar(self):
+        return self.driver.find_element(By.CLASS_NAME, "cdx-text-input__input")
+
+    @property
+    def proposals_list(self):
+        list_of_proposals = self.driver.find_element(By.CLASS_NAME, "cdx-menu__listbox")
+        return list_of_proposals.find_elements(By.TAG_NAME, "li")
