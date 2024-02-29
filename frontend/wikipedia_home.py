@@ -26,7 +26,8 @@ class WikipediaHomePage(BasePage):
 
     @property
     def search_bar(self):
-        return self.driver.find_element(By.CLASS_NAME, "cdx-text-input__input")
+        return WebDriverWait(self.driver, 20).until(
+            expected_conditions.element_to_be_clickable((By.ID, "searchform")))
 
     @property
     def proposals_list(self):

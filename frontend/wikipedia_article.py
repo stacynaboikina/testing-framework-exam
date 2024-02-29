@@ -10,7 +10,7 @@ class WikipediaArticlePage(BasePage):
 
     @property
     def hide_button(self):
-        return BasePage.find_by_data_event_name(self, 'button', 'pinnable-header.vector-toc.unpin')
+        return self.find_by_data_event_name(self, 'button', 'pinnable-header.vector-toc.unpin')
 
     @property
     def side_menu(self):

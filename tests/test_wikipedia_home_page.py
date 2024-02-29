@@ -20,4 +20,4 @@ def test_wikipedia_search_field(pages):
         time.sleep(1)
     with allure.step("Verify first proposal"):
         list_of_proposals = pages.wiki_home.proposals_list
-        assert list_of_proposals[0].text.startswith('Rihanna') == True
+        assert list_of_proposals[0].text.startswith('Rihanna')

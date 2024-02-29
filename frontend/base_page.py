@@ -11,5 +11,4 @@ class BasePage:
         self.driver = driver
 
     def find_by_data_event_name(self, tag_name, element_name):
-        found_element = self.driver.find_element(By.CSS_SELECTOR, f'{tag_name}[data-event-name="{element_name}"]')
-        return found_element
+        return self.driver.find_element(By.CSS_SELECTOR, f'{tag_name}[data-event-name="{element_name}"]')
