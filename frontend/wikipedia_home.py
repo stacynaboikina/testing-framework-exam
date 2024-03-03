@@ -26,8 +26,8 @@ class WikipediaHomePage(BasePage):
 
     @property
     def search_bar(self):
-        return WebDriverWait(self.driver, 20).until(
-            expected_conditions.element_to_be_clickable((By.ID, "searchform")))
+        return (WebDriverWait(self.driver, 20).until(
+             expected_conditions.element_to_be_clickable((By.NAME, "search"))))
 
     @property
     def proposals_list(self):
