@@ -1,4 +1,5 @@
 from selenium.webdriver import Chrome
+from selenium.webdriver.common.by import By
 
 
 class BasePage:
@@ -8,3 +9,6 @@ class BasePage:
     """
     def __init__(self, driver: Chrome):
         self.driver = driver
+
+    def find_by_data_event_name(self, tag_name, element_name):
+        return self.driver.find_element(By.CSS_SELECTOR, f'{tag_name}[data-event-name="{element_name}"]')
