@@ -21,3 +21,4 @@ def test_search_from_main_page(pages):
             pages.wiki_home.search_bar.send_keys(Keys.ENTER)
         with allure.step("Verify second search"):
             assert pages.wiki_article.main_header.text == "Selenium"
+
