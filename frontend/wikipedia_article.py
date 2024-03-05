@@ -20,3 +20,11 @@ class WikipediaArticlePage(BasePage):
     @property
     def unhide_button(self):
         return self.driver.find_element(By.ID, "vector-page-titlebar-toc")
+
+    @property
+    def toast_menu_button(self):
+        return self.driver.find_element(By.ID, "vector-main-menu-dropdown-checkbox")
+
+    @property
+    def main_page_button(self):
+        return self.driver.find_element(By.ID, "n-mainpage-description")
