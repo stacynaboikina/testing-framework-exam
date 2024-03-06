@@ -42,4 +42,7 @@ def pages(driver):
 @pytest.fixture(autouse=True, scope="function")
 def open_browser_home_page(driver, pages, config):
     driver.get(config["app_url"])
+    driver.maximize_window()
+
+
 
