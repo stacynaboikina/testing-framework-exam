@@ -29,7 +29,9 @@ def config():
 
 @pytest.fixture(scope='session')
 def driver():
-    driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    options.add_argument("--start-maximized")
+    driver = webdriver.Chrome(options=options)
     return driver
 
 

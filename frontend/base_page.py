@@ -1,4 +1,5 @@
 from selenium.webdriver import Chrome
+from selenium import webdriver
 
 
 class BasePage:
@@ -8,3 +9,5 @@ class BasePage:
     """
     def __init__(self, driver: Chrome):
         self.driver = driver
+        options = webdriver.ChromeOptions()
+        options.add_argument("window-size=1920x1080")
