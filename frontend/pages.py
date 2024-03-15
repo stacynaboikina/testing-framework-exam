@@ -1,4 +1,5 @@
 from frontend.wikipedia_home import WikipediaHomePage
+from frontend.wikipedia_account import WikipediaAccountPage
 
 
 class Pages:
@@ -10,3 +11,4 @@ class Pages:
     """
     def __init__(self, driver):
         self.wiki_home = WikipediaHomePage(driver)
+        self.wiki_account = WikipediaAccountPage(driver)

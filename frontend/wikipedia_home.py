@@ -1,5 +1,7 @@
+from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.common.exceptions import ElementNotInteractableException
 
 from frontend.base_page import BasePage
 
@@ -23,3 +25,26 @@ class WikipediaHomePage(BasePage):
         for tag in all_a_tags:
             if tag.get_attribute("title") == "Help:Introduction to Wikipedia":
                 return tag
+
+    @property
+    def input_search_field(self):
+        return WebDriverWait(self.driver, 10, 1, ignored_exceptions=ElementNotInteractableException).until(
+            expected_conditions.presence_of_element_located((By.NAME, 'search')))
+
+    @property
+    def search_button(self):
+        return WebDriverWait(self.driver, 10, 1, ignored_exceptions=StaleElementReferenceException).until(
+            expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[id="searchform"] button')))
+
+    @property
+    def left_rail_content_menu(self):
+        return self.driver.find_element(By.ID, 'vector-toc')
+
+    @property
+    def header(self):
+        return self.driver.find_element(By.ID, 'firstHeading')
+
+    @property
+    def create_account_link(self):
+        return WebDriverWait(self.driver, 10, 1, ignored_exceptions=StaleElementReferenceException).until(
+            expected_conditions.element_to_be_clickable((By.ID, 'pt-createaccount-2')))
